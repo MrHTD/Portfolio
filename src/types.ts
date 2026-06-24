@@ -22,7 +22,7 @@ export interface WorkExperience {
   period: string;
   bulletPoints: string[];
   metrics: MetricHighlight[];
-  optimizationId?: 'jenkins-speed' | 'aws-scaling' | 'certbot' | 'backups';
+  optimizationId?: 'jenkins-speed' | 'aws-scaling' | 'certbot' | 'backups' | 'upwork-proxy' | 'upwork-lamp';
 }
 
 export interface ProjectLogStep {

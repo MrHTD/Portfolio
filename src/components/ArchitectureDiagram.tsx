@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Server, Database, Cloud, Cpu, Laptop, Bell, Activity, Wifi, ShieldAlert } from 'lucide-react';
 
 interface Node {
@@ -226,10 +227,13 @@ export default function ArchitectureDiagram({ nodes, connections, projectId }: P
             const isSelected = selectedNode?.id === node.id;
 
             return (
-              <div
+              <motion.div
                 key={node.id}
                 style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group transition-all duration-300"
+                className="absolute cursor-pointer group"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
                 onClick={() => setSelectedNode(node)}
               >
                 {/* Glowing pulse ring if selected */}
@@ -259,7 +263,7 @@ export default function ArchitectureDiagram({ nodes, connections, projectId }: P
                     <span className="text-[8px] font-mono text-gray-500 uppercase tracking-wider">{node.status}</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

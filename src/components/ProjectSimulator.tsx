@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { Play, RotateCcw, AlertTriangle, CheckCircle, Terminal as TermIcon, ShieldCheck } from 'lucide-react';
 import { ProjectLogStep } from '../types';
 
@@ -147,9 +148,12 @@ export default function ProjectSimulator({ steps, projectName }: Props) {
         )}
 
         {printedLogs.map((log, index) => (
-          <div 
+          <motion.div 
             key={index}
-            className={`flex items-start text-[11px] leading-relaxed transition-all duration-300 animate-[fadeIn_0.2s_ease-out]`}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-start text-[11px] leading-relaxed transition-all duration-300"
           >
             {/* Log Level Prefix */}
             <span className="mr-2 select-none font-sans font-bold">
@@ -172,7 +176,7 @@ export default function ProjectSimulator({ steps, projectName }: Props) {
             }`}>
               {log.text}
             </span>
-          </div>
+          </motion.div>
         ))}
       </div>
 

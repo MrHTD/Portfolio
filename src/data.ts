@@ -7,9 +7,9 @@ export const PERSONAL_DETAILS = {
   summary: 'DevOps Engineer focused on building CI/CD pipelines and automating cloud infrastructure. Proficient in AWS, Terraform, Ansible, Docker, Jenkins, and Kubernetes.',
   email: 'mughis01@gmail.com',
   phone: '03172155377',
-  // location: 'Karachi, Sindh, Pakistan',
+  location: 'Karachi, Sindh, Pakistan',
   linkedin: 'https://www.linkedin.com/in/mughis-uddin-ahmed',
-  github: 'https://github.com/mughis01', // Standard github link
+  github: 'https://github.com/MrHTD', // Standard github link
 };
 
 export const SKILLS: Skill[] = [
@@ -47,6 +47,24 @@ export const SKILLS: Skill[] = [
 ];
 
 export const WORK_EXPERIENCES: WorkExperience[] = [
+  {
+    id: 'exp-upwork-1',
+    jobTitle: 'Freelance DevOps Engineer',
+    company: 'Upwork',
+    location: 'Remote',
+    period: 'Jan 2026 - Present',
+    bulletPoints: [
+      'Designed and implemented a secure reverse proxy and VPN-based access solution to expose private services to the public internet despite ISP port restrictions.',
+      'Configured Nginx as a reverse proxy with WireGuard to securely route external traffic to internal services.',
+      'Set up and configured an email server using hMailServer, including domain setup, SMTP/IMAP services, SSL/TLS, and DNS records (SPF, DKIM, MX) to ensure reliable and authenticated email delivery.',
+      'Supported hosting of multiple services including game servers, media streaming platforms, application workloads, and email services.',
+      'Assisted with infrastructure planning for migration from virtualized environments (VMware Workstation) to on-premise server hardware.',
+      'Troubleshoot networking, firewall rules, email authentication issues, and service connectivity to ensure stable and secure external access.',
+      'Successfully deployed and configured MediaWiki on Windows Server using IIS Manager, ensuring a secure, scalable, and production-ready wiki environment.'
+    ],
+    metrics: [],
+    optimizationId: 'upwork-proxy'
+  },
   {
     id: 'exp1',
     jobTitle: 'Jr. DevOps-IT Engineer',
@@ -89,6 +107,22 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
       { label: 'Deployment Errors', value: 'Minimal', subtext: 'Kubernetes orchestration' }
     ],
     optimizationId: 'aws-scaling'
+  },
+  {
+    id: 'exp-upwork-2',
+    jobTitle: 'Freelance DevOps Engineer (Seasonal)',
+    company: 'Upwork',
+    location: 'Remote',
+    period: 'Sep 2019 - Dec 2024',
+    bulletPoints: [
+      'Configured firewalls and user permissions to enhance system security.',
+      'Deployed LAMP stack applications with Apache optimization for high traffic environments.',
+      'Provided DevOps consulting for small businesses migrating to cloud infrastructure.',
+      'Automated server provisioning and configuration management for multiple clients.',
+      'Implemented monitoring solutions and backup strategies for client environments.'
+    ],
+    metrics: [],
+    optimizationId: 'upwork-lamp'
   }
 ];
 

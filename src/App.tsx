@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { 
   Github, 
   Linkedin, 
@@ -77,8 +78,33 @@ export default function App() {
       
       {/* Background ambient glow */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]" />
+        <motion.div
+          animate={{
+            transform: [
+              "translate(0%, 0%) scale(1)",
+              "translate(5%, 5%) scale(1.1)",
+              "translate(-5%, -2%) scale(0.9)",
+              "translate(0%, 0%) scale(1)"
+            ],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/10 blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            transform: [
+              "translate(0%, 0%) scale(1)",
+              "translate(-5%, -5%) scale(1.1)",
+              "translate(5%, 2%) scale(0.9)",
+              "translate(0%, 0%) scale(1)"
+            ],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 5 }}
+          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       </div>
 
       {/* Modern Fixed Navbar */}
@@ -127,13 +153,52 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-4 gap-4 auto-rows-min">
         
         {/* Section 1: Hero Section */}
-        <section id="hero" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-8 lg:p-16 border border-zinc-800 flex flex-col justify-center relative overflow-hidden z-10 text-center items-center">
+        <motion.section 
+          id="hero" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-8 lg:p-16 border border-zinc-800 flex flex-col justify-center relative overflow-hidden z-10 text-center items-center"
+        >
+          {/* Animated Background Orbs */}
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/20 blur-[100px] pointer-events-none"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.05, 0.15, 0.05],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }}
+            className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-emerald-500/20 blur-[120px] pointer-events-none"
+          />
+
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] font-black text-[200px] pointer-events-none whitespace-nowrap">HELLO</div>
           
           <div className="space-y-6 z-10 max-w-4xl mx-auto flex flex-col items-center">
-            <span className="px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-full text-xs font-mono font-bold tracking-widest uppercase mb-4">
-              {PERSONAL_DETAILS.location} • Available for hire
-            </span>
+            <motion.span 
+              animate={{ opacity: [0.7, 1, 0.7], boxShadow: ["0 0 0px rgba(99,102,241,0)", "0 0 15px rgba(99,102,241,0.5)", "0 0 0px rgba(99,102,241,0)"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-full text-xs font-mono font-bold tracking-widest uppercase mb-4"
+            >
+              <span className="inline-block w-2 h-2 rounded-full bg-indigo-400 mr-2 animate-pulse" />
+              Available for hire
+            </motion.span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-100 tracking-tight text-center">
               Mughis Uddin <span className="text-indigo-500">Ahmed</span>
@@ -173,12 +238,26 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 2: Live Core Stats row */}
-        <section id="stats" className="col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.section 
+          id="stats" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           {stats.map((st, idx) => (
-            <div key={idx} className="bg-zinc-900 rounded-3xl p-6 border border-zinc-800 flex flex-col justify-between">
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 * idx + 0.3 }}
+              viewport={{ once: true }}
+              className="bg-zinc-900 rounded-3xl p-6 border border-zinc-800 flex flex-col justify-between"
+            >
               <div>
                 <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest block font-bold mb-1">
                   {st.label}
@@ -188,24 +267,45 @@ export default function App() {
               <div className="text-4xl font-black italic text-zinc-100 mt-4">
                 {st.value}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </section>
+        </motion.section>
 
         {/* Section 3: Professional Experience */}
-        <section id="experience" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6">
+        <motion.section 
+          id="experience" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6"
+        >
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Experience</div>
           <ExperienceTimeline />
-        </section>
+        </motion.section>
 
         {/* Section 4: Education */}
-        <section id="education" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6">
+        <motion.section 
+          id="education" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6"
+        >
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
             <BookOpen size={14} className="text-indigo-400" /> Education
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {EDUCATIONS.map((edu) => (
-              <div key={edu.id} className="border-l-2 border-zinc-800 hover:border-indigo-500 transition-colors pl-5 py-2 relative group bg-zinc-950/30 rounded-r-2xl pr-4 border-t border-r border-b border-zinc-800/30">
+            {EDUCATIONS.map((edu, idx) => (
+              <motion.div 
+                key={edu.id} 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
+                viewport={{ once: true }}
+                className="border-l-2 border-zinc-800 hover:border-indigo-500 transition-colors pl-5 py-2 relative group bg-zinc-950/30 rounded-r-2xl pr-4 border-t border-r border-b border-zinc-800/30"
+              >
                 <div className="absolute w-3 h-3 rounded-full border-2 border-zinc-900 bg-zinc-700 -left-[7px] top-4 transition-colors group-hover:bg-indigo-500 group-hover:border-indigo-900" />
                 <div className="flex justify-between items-center gap-2">
                   <p className="text-xs text-zinc-500 font-mono">{edu.period}</p>
@@ -214,19 +314,33 @@ export default function App() {
                 <p className="font-bold text-sm md:text-base text-zinc-100 mt-2">{edu.degree}</p>
                 <p className="text-xs font-medium text-indigo-400 mt-1">{edu.institution}</p>
                 <p className="text-[11px] sm:text-xs text-zinc-400 mt-3 leading-relaxed">{edu.details}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 5: Certifications */}
-        <section id="certifications" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6">
+        <motion.section 
+          id="certifications" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-6"
+        >
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2 flex items-center gap-2">
             <Award size={14} className="text-indigo-400" /> Certifications & Credentials
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {CERTIFICATES.map((cert) => (
-              <div key={cert.id} className="bg-zinc-950/80 rounded-2xl p-5 flex flex-col justify-between border border-zinc-800/80 hover:border-indigo-500/50 hover:bg-zinc-900/50 transition-all duration-300 group relative overflow-hidden shadow-sm hover:shadow-[0_0_15px_rgba(79,70,229,0.1)]">
+            {CERTIFICATES.map((cert, idx) => (
+              <motion.div 
+                key={cert.id} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 * idx }}
+                viewport={{ once: true }}
+                className="bg-zinc-950/80 rounded-2xl p-5 flex flex-col justify-between border border-zinc-800/80 hover:border-indigo-500/50 hover:bg-zinc-900/50 transition-all duration-300 group relative overflow-hidden shadow-sm hover:shadow-[0_0_15px_rgba(79,70,229,0.1)]"
+              >
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity transform group-hover:scale-110 group-hover:-rotate-12 duration-500">
                   <Award size={80} />
                 </div>
@@ -247,19 +361,33 @@ export default function App() {
                   <span className="flex items-center gap-1.5"><ShieldCheck size={12} /> VERIFIED</span>
                   <span className="bg-zinc-900 px-2 py-0.5 rounded text-zinc-400">{cert.date}</span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 5: Skills Toolchain */}
-        <section id="skills" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4">
+        <motion.section 
+          id="skills" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4"
+        >
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">Skills</div>
           <SkillsGrid />
-        </section>
+        </motion.section>
 
         {/* Section 6: Interactive Project Lab */}
-        <section id="projects" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4">
+        <motion.section 
+          id="projects" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4"
+        >
           <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">Projects</div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
@@ -363,10 +491,17 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 7: Seamless Contact Ticket Console */}
-        <section id="contact" className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4">
+        <motion.section 
+          id="contact" 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="col-span-1 lg:col-span-4 bg-zinc-900 rounded-3xl p-6 lg:p-8 border border-zinc-800 flex flex-col gap-4"
+        >
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-2">
             <div className="flex flex-col gap-2 max-w-xl">
               <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Connect</div>
@@ -378,7 +513,7 @@ export default function App() {
           <div className="w-full">
             <ContactConsole />
           </div>
-        </section>
+        </motion.section>
 
       </main>
 

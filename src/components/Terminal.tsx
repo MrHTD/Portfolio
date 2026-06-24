@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, KeyboardEvent } from 'react';
+import { motion } from 'motion/react';
 import { Terminal as TerminalIcon, Play, RefreshCw, Trash2, ArrowRight } from 'lucide-react';
 import { PERSONAL_DETAILS } from '../data';
 
@@ -230,7 +231,13 @@ postgres-backup-cronjob-28712-xc9    0/1     Completed 0          10h     10.244
         className="flex-1 overflow-y-auto p-4 space-y-3 z-10 scrollbar scroll-smooth"
       >
         {history.map((entry, idx) => (
-          <div key={idx} className="whitespace-pre-wrap">
+          <motion.div 
+            key={idx} 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.2 }}
+            className="whitespace-pre-wrap"
+          >
             {entry.command !== undefined && (
               <div className="flex items-center text-indigo-400 font-semibold mb-1">
                 <span className="text-emerald-500 mr-2">mughis-terminal$</span>
@@ -249,7 +256,7 @@ postgres-backup-cronjob-28712-xc9    0/1     Completed 0          10h     10.244
                 {entry.text}
               </div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
 
