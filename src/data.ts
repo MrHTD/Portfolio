@@ -4,10 +4,10 @@ export const PERSONAL_DETAILS = {
   name: 'Mughis Uddin Ahmed',
   title: 'DevOps Engineer',
   tagline: 'Automating Infrastructure. Accelerating Delivery. Scaling with Precision.',
-  summary: 'DevOps Engineer with 2+ years of hands-on experience building CI/CD pipelines and automating cloud infrastructure. Cut deployment cycle times by 83% and reduced AWS cloud expenditure by 15% through infrastructure optimization. Proficient in AWS, Terraform, Ansible, Docker, Jenkins, and Kubernetes.',
+  summary: 'DevOps Engineer focused on building CI/CD pipelines and automating cloud infrastructure. Proficient in AWS, Terraform, Ansible, Docker, Jenkins, and Kubernetes.',
   email: 'mughis01@gmail.com',
   phone: '03172155377',
-  location: 'Karachi, Sindh, Pakistan',
+  // location: 'Karachi, Sindh, Pakistan',
   linkedin: 'https://www.linkedin.com/in/mughis-uddin-ahmed',
   github: 'https://github.com/mughis01', // Standard github link
 };
@@ -54,11 +54,11 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     location: 'Karachi, Pakistan',
     period: 'Feb 2026 – Present',
     bulletPoints: [
-      'Designed and implemented CI/CD pipelines using Jenkins for web applications, cutting average release cycle time from an hour to 10mins across staging and production environments.',
-      'Provisioned and maintained Linux infrastructure across 10+ servers, configuring Nginx and Apache virtual hosts to sustain high availability across all production deployments.',
-      'Automated server provisioning and maintenance using custom shell scripts, reducing environment setup time by 70% and enforcing 100% deployment consistency across staging and production.',
-      'Secured 50+ production domains by automating SSL/TLS provisioning with Certbot/Let\'s Encrypt and configuring DNS routing, achieving zero certificate-expiry incidents across all managed properties.',
-      'Automated daily database and server backups via custom Bash + cron, protecting 100GB+ of production data and eliminating 2 hours/month of manual backup operations.'
+      'Designed and implemented CI/CD pipelines using Jenkins for web applications across staging and production environments.',
+      'Provisioned and maintained Linux infrastructure across 10+ servers, configuring Nginx and Apache virtual hosts to sustain high availability.',
+      'Automated server provisioning and maintenance using custom shell scripts, enforcing deployment consistency across staging and production.',
+      'Secured production domains by automating SSL/TLS provisioning with Certbot/Let\'s Encrypt and configuring DNS routing.',
+      'Automated daily database and server backups via custom Bash + cron.'
     ],
     metrics: [
       { label: 'Release Time', value: '-83%', subtext: 'Cut from 60 to 10 minutes' },
@@ -76,11 +76,11 @@ export const WORK_EXPERIENCES: WorkExperience[] = [
     period: 'Jan 2025 – Nov 2025',
     bulletPoints: [
       'Deployed containerized web applications on Kubernetes using YAML manifests, configuring deployments, services, and ingress for scalability and accessibility.',
-      'Built and maintained Jenkins CI/CD pipelines, reducing deployment time by 50% and minimizing manual errors.',
-      'Optimized AWS infrastructure by rightsizing EC2 instances and implementing Auto Scaling, reducing monthly cloud expenditure by 15%.',
-      'Configured and secured Nginx servers for high traffic workloads, improving response time by 35%.',
+      'Built and maintained Jenkins CI/CD pipelines to streamline code delivery.',
+      'Optimized AWS infrastructure by rightsizing EC2 instances and implementing Auto Scaling.',
+      'Configured and secured Nginx servers for high traffic workloads.',
       'Automated infrastructure provisioning using Terraform and Ansible for AWS environments.',
-      'Implemented monitoring with Prometheus & Grafana, enabling proactive issue detection and reducing mean incident response time by 30%.'
+      'Implemented monitoring with Prometheus & Grafana, enabling proactive issue detection.'
     ],
     metrics: [
       { label: 'AWS Cost', value: '-15%', subtext: 'Via instance rightsizing' },

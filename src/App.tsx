@@ -37,27 +37,8 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
   const [projectTab, setProjectTab] = useState<'architecture' | 'simulator'>('architecture');
-  const [karachiTime, setKarachiTime] = useState('');
   const [activeSection, setActiveSection] = useState('hero');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-
-  // Update Karachi time dynamically
-  useEffect(() => {
-    const updateTime = () => {
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Karachi',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      };
-      setKarachiTime(new Date().toLocaleTimeString('en-US', options));
-    };
-
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Scroll spy
   useEffect(() => {
@@ -81,10 +62,10 @@ export default function App() {
   const activeProject = PROJECTS[activeProjectIdx];
 
   const stats = [
+    { value: '2+', label: 'Years Experience', desc: 'Hands-on CI/CD & Cloud' },
     { value: '83%', label: 'Jenkins Deploy Speedup', desc: 'Cut release from 60m to 10m' },
     { value: '15%', label: 'AWS Billing Saved', desc: 'Optimized EC2 & Auto-Scaling' },
-    { value: '50+', label: 'SSL Domains Secured', desc: '0 certificate expiry events' },
-    { value: '100GB+', label: 'Daily DB Backups', desc: 'Automated Bash/Docker cron' }
+    { value: '50+', label: 'SSL Domains Secured', desc: '0 certificate expiry events' }
   ];
 
   const handleDownloadResume = () => {
@@ -105,7 +86,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           <a href="#hero" className="flex items-center space-x-2 group">
-            <span className="text-zinc-100 font-bold tracking-tighter text-xl">MUGHIS UDDIN AHMED</span>
+            <span className="text-zinc-100 font-bold tracking-tight text-xl">Mughis Uddin Ahmed</span>
             <span className="text-xs text-zinc-500 font-mono pl-2 hidden sm:inline uppercase tracking-widest">/ DevOps</span>
           </a>
 
@@ -117,20 +98,10 @@ export default function App() {
             <a href="#skills" className={`transition-colors ${activeSection === 'skills' ? 'text-indigo-400 font-bold' : 'hover:text-indigo-400'}`}>Skills</a>
             <a href="#projects" className={`transition-colors ${activeSection === 'projects' ? 'text-indigo-400 font-bold' : 'hover:text-indigo-400'}`}>Projects</a>
             <a href="#contact" className={`transition-colors ${activeSection === 'contact' ? 'text-indigo-400 font-bold' : 'hover:text-indigo-400'}`}>Contact</a>
-            
-            <span className="text-zinc-800">|</span>
-
-            {/* Live Uptime Clock */}
-            <div className="flex items-center space-x-1.5 text-[11px] text-zinc-400">
-              <span>PK_TIME: {karachiTime || 'Loading'}</span>
-            </div>
           </div>
 
           {/* Mobile menu triggers */}
           <div className="flex items-center space-x-3 md:hidden">
-            <div className="text-[10px] font-mono text-zinc-400">
-              {karachiTime}
-            </div>
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-zinc-400 hover:text-indigo-400 p-1 cursor-pointer"
@@ -164,15 +135,15 @@ export default function App() {
               {PERSONAL_DETAILS.location} • Available for hire
             </span>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-zinc-100 leading-none tracking-tight">
-              MUGHIS <br /> UDDIN <span className="text-indigo-500">AHMED</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-100 tracking-tight text-center">
+              Mughis Uddin <span className="text-indigo-500">Ahmed</span>
             </h1>
             
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-zinc-400 mt-4">
-              DevOps & <span className="italic text-zinc-300">Cloud Infrastructure</span> Engineer
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-light text-zinc-400 mt-6 text-center">
+              DevOps & <span className="text-zinc-300 font-medium">Cloud Infrastructure</span> Engineer
             </h2>
 
-            <p className="text-base sm:text-lg text-zinc-500 leading-relaxed max-w-2xl font-sans mt-8 text-center">
+            <p className="text-base sm:text-lg text-zinc-500 leading-relaxed max-w-2xl font-sans mt-6 text-center mx-auto">
               {PERSONAL_DETAILS.summary}
             </p>
 
