@@ -7,23 +7,23 @@
 
 /* --- Root & Color Variables --- */
 :root {
-  /* Dark Mode (Default) */
-  --canvas: 11, 10, 9;           /* #0B0A09 obsidian canvas */
-  --panel: 20, 17, 15;           /* #14110F subtle card panel */
-  --raised: 28, 24, 21;          /* #1C1815 elevated card */
-  --wine: 110, 31, 42;           /* #6E1F2A rich wine button/accent */
-  --wine-deep: 74, 20, 28;       /* #4A141C */
-  --gold: 201, 169, 97;          /* #C9A961 antique gold */
-  --gold-soft: 224, 201, 138;    /* #E0C98A */
-  --gold-glow: rgba(201, 169, 97, 0.15);
-  --quill: 237, 230, 218;        /* #EDE6DA primary text */
-  --quill-soft: 185, 175, 159;   /* #B9AFAF secondary text */
-  --quill-mute: 138, 129, 117;   /* #8A8175 muted labels */
-  --rule: 201, 169, 97;          /* rule borders */
-  --rule-alpha: 0.18;
-  --sage: 125, 139, 106;         /* online/live status badge */
-  --whatsapp-green: 37, 211, 102;/* #25D366 official WhatsApp green */
-  --terminal-bg: 14, 13, 12;
+  /* Dark Mode (DevOps/IDE Theme) */
+  --canvas: 13, 17, 23;          /* #0D1117 Deep IDE Navy */
+  --panel: 22, 27, 34;           /* #161B22 Subtle code panel */
+  --raised: 33, 38, 45;          /* #21262D Elevated card */
+  --wine: 137, 87, 229;          /* #8957E5 Terraform Purple */
+  --wine-deep: 101, 56, 180;     /* #6538B4 Deep Purple */
+  --gold: 6, 182, 212;           /* #06B6D4 Kubernetes/Docker Cyan */
+  --gold-soft: 103, 232, 249;    /* #67E8F9 Light Cyan */
+  --gold-glow: rgba(6, 182, 212, 0.15);
+  --quill: 241, 245, 249;        /* #F1F5F9 Crisp Slate primary text */
+  --quill-soft: 148, 163, 184;   /* #94A3B8 Slate secondary text */
+  --quill-mute: 100, 116, 139;   /* #64748B Muted labels */
+  --rule: 6, 182, 212;           /* rule borders mapped to cyan */
+  --rule-alpha: 0.25;
+  --sage: 16, 185, 129;          /* #10B981 Terminal/Success Green */
+  --whatsapp-green: 37, 211, 102;
+  --terminal-bg: 5, 5, 5;        /* Pure black for terminal contexts */
   --grain-opacity: 0.035;
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -34,22 +34,23 @@
 }
 
 [data-theme="light"] {
-  --canvas: 246, 241, 231;       /* #F6F1E7 luxury warm parchment */
+  /* Light Mode (Cloud Dashboard Theme) */
+  --canvas: 248, 250, 252;       /* #F8FAFC Cloud Slate */
   --panel: 255, 255, 255;        /* #FFFFFF */
-  --raised: 250, 246, 239;       /* #FAF6EF */
-  --wine: 90, 25, 34;            /* #5A1922 */
-  --wine-deep: 60, 15, 22;       /* #3C0F16 */
-  --gold: 154, 123, 58;          /* #9A7B3A warm brass gold */
-  --gold-soft: 126, 99, 48;      /* #7E6330 */
-  --gold-glow: rgba(154, 123, 58, 0.12);
-  --quill: 26, 23, 20;           /* #1A1714 deep charcoal */
-  --quill-soft: 74, 67, 58;      /* #4A433A */
-  --quill-mute: 107, 98, 85;     /* #6B6255 */
-  --rule: 90, 25, 34;
+  --raised: 241, 245, 249;       /* #F1F5F9 */
+  --wine: 109, 40, 217;          /* #6D28D9 Vibrant Purple */
+  --wine-deep: 91, 33, 182;      /* #5B21B6 */
+  --gold: 2, 132, 199;           /* #0284C7 Deep Tech Blue */
+  --gold-soft: 14, 165, 233;     /* #0EA5E9 */
+  --gold-glow: rgba(2, 132, 199, 0.12);
+  --quill: 15, 23, 42;           /* #0F172A Deep Slate text */
+  --quill-soft: 71, 85, 105;     /* #475569 */
+  --quill-mute: 100, 116, 139;   /* #64748B */
+  --rule: 109, 40, 217;
   --rule-alpha: 0.16;
-  --sage: 82, 102, 62;
+  --sage: 5, 150, 105;           /* #059669 Darker green for contrast */
   --whatsapp-green: 26, 178, 83;
-  --terminal-bg: 240, 235, 224;
+  --terminal-bg: 226, 232, 240;
   --grain-opacity: 0.05;
   color-scheme: light;
 }
