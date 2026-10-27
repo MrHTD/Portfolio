@@ -35,7 +35,7 @@
 
 [data-theme="light"] {
   /* Light Mode (Cloud Dashboard Theme) */
-  --canvas: 248, 250, 252;       /* #F8FAFC Cloud Slate */
+  --canvas: 244, 250, 252;       /* #F8FAFC Cloud Slate */
   --panel: 255, 255, 255;        /* #FFFFFF */
   --raised: 241, 245, 249;       /* #F1F5F9 */
   --wine: 109, 40, 217;          /* #6D28D9 Vibrant Purple */
@@ -2140,6 +2140,12 @@ section {
   width: 44px;
   height: 44px;
   font-size: 12px;
+}
+
+.cert-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .cert-name {
